@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class = "cart" style="padding: 100px 100px;">
+    <h2>
+        {{records.first_name|capfirst}} {{records.last_name}}
+    </h2>
+    <hr style="border : 1px solid; margin: 30px 180px;">
+    <p><strong>ID:</strong> {{ records.id }}</p>
+    <p><strong>First Name:</strong> {{ records.first_name }}</p>
+    <p><strong>Last Name:</strong> {{ records.last_name }}</p>
+    <p><strong>Category:</strong> {{ records.category }}</p>
+    <p><strong>Phone:</strong> {{ records.phone }}</p>
+    <p><strong>Tall:</strong> {{ records.tall }}</p>
+    <p><strong>Weight:</strong> {{ records.weight }}</p>
+    <p><strong>Address:</strong> {{ records.address }}</p>
+    <p><strong>Created At:</strong> {{ records.created_at }}</p>
+
+    <a href="{% url 'update_record' records.id%}" class="btn btn-outline-dark">update record</a>
+    <a href="{% url 'delete_record' records.id%}" onclick="return confirm('are you sure to delete this record')" class="btn btn-outline-danger">delete record</a>
+
+</div>
+{% endblock%}

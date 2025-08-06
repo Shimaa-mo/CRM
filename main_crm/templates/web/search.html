@@ -1,32 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
-<div class = 'text-center'> 
-    <br><br><br>
-
-    <h1>welcome to dashboard {{user}}</h1>
-    <a href="{%url 'createrecord'%}" class="btn btn-outline-primary">create record<i class="fa-solid fa-user-plus"></i></a>
-       <br><br>
-
-    <hr style="border : 1px solid; margin: 30px 180px;">
-    <br><br>
-    
-    {% include 'parts/alerts.html' %}
-
-    <div class="text-center" style="margin: 0 100px;">
-        <form action="{% url 'search'%}" method="get">
-            <input type="search" name="query" placeholder="write something here" class="form-control mr-sm-2">
-            &nbsp;
-            <button type="submit" class="btn btn-outline-dark w-100 btn-block p-2">Search</button>
-        </form>
-        <hr style="border : 1px solid; margin: 30px 180px;">
-        <br><br>
-    </div>
-
-
-
-    <div class="text-center">
+<div class="text-center">
         <table class="table">
             <thead class="thead-dark">
                 <tr>
@@ -44,8 +19,8 @@
                 </tr>
             </thead>
             <tbody>
-                {% if records %}
-                {% for record in records%}
+                {% if results %}
+                {% for record in results%}
                 <tr>
                 <th scope="row">1</th>
                 <td> {{record.id}} </td>
@@ -65,7 +40,7 @@
                 <br>
                 <tr>
                     <td colspan="110" class="text-center">
-                        you don't have any records yet
+                        not found "{{ query}}"
                     </td>
                 </tr>
                 {%endif%}
@@ -75,5 +50,4 @@
             </tbody>
         </table>
     </div>
-</div>
 {% endblock%}

@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class = "cart" style="padding: 100px 100px;">
+    <h2>update record </h2>
+    <hr style="border : 1px solid; margin: 30px 180px;">
+    
+    <form action="" method="post">
+        {% csrf_token%}
+        {{ form|crispy }}
+    <div class=" text-center">
+        <br>
+        <button type="submit" class=" btn btn-outline-primary">update record</button>
+    </div>
+    </form>
+</div>
+{% endblock%}
